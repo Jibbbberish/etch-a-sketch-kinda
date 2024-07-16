@@ -1,14 +1,15 @@
 const container = document.querySelector("#container");
-let divNum = 16;
+const btnOne = document.querySelector("#btnOne");
+const btnTwo = document.querySelector("#btnTwo");
 
-function makeDivs() {
+function makeDivs(divNum) {
     for (let i=1; i<=divNum**2; i++) {
         const square = document.createElement("div");
         square.classList.add("square");
-        square.classList.add(`square-${i}`);
         container.appendChild(square);
         square.setAttribute("style", `height: ${(1000-(2*divNum))/divNum}px; 
         width: ${(1000-(2*divNum))/divNum}px;`)
+        hoveringColor();
     }
 }
 
@@ -25,5 +26,22 @@ function hoveringColor() {
     }
 }
 
-makeDivs();
-hoveringColor();
+const clearCanvas = ()=> {
+    let squares = document.getElementsByClassName("square");
+    squares = Array.from(squares); 
+    for (i=0 ; i < squares.length ; i++) {
+        squares[i].remove();
+    }
+}
+
+const makeCanvas = ()=> {
+    let sideLength = prompt("Enter number of squares per side!");
+    if (sideLength>100) {
+        sideLength = 100;
+    }
+    makeDivs(sideLength);
+}
+
+btnOne.addEventListener("click", clearCanvas);
+btnTwo.addEventListener("click", makeCanvas);
+

@@ -1,4 +1,4 @@
-html, body {margin: 0; padding: 0; height: 100%; width: 100%; display: flex;}
+html, body {margin: 0; padding: 0; height: 100%; width: 100%;}
 
 body {
     background-color: rgb(56, 56, 56);
@@ -18,3 +18,4 @@ body {
     border-width: 1px;
     border-color: white;
 }
+
